@@ -49,33 +49,53 @@ public class AppTest {
     }
     //TODO Write correct unit test for task3
     @Test
-    public void testForTas3() {
-        Assertions.assertEquals(true, false);
+    public void testForTask3() {
+        List<Transaction> transactions = getTransactions();
+        List<Trader> result = underTest.task3(transactions, "Cambridge");
+        Assertions.assertAll(
+                () -> Assertions.assertEquals(result.size(),4),
+                () -> Assertions.assertEquals(result.get(0).getName(),"Alan"),
+                () -> Assertions.assertEquals(result.get(1).getName(),"Brian"),
+                () -> Assertions.assertEquals(result.get(2).getName(),"Raoul")
+        );
     }
     //TODO Write correct unit test for task4
     @Test
     public void testForTask4() {
-        Assertions.assertEquals(true, false);
+        List<Transaction> transactions = getTransactions();
+        String result = underTest.task4(transactions);
+
+        Assertions.assertEquals(result, "Alan, Brian, Mario, Mario, Raoul, Raoul");
     }
     //TODO Write correct unit test for task5
     @Test
     public void testForTask5() {
-        Assertions.assertEquals(true, false);
+        List<Transaction> transactions = getTransactions();
+        Boolean result = underTest.task5(transactions, "Milan");
+        Assertions.assertEquals(result, true);
     }
     //TODO Write correct unit test for task6
     @Test
     public void testForTask6() {
-        Assertions.assertEquals(true, false);
+        List<Transaction> transactions = getTransactions();
+        int result = underTest.task6(transactions, "Cambridge");
+
+        Assertions.assertEquals(result, 2650);
     }
     //TODO Write correct unit test for task7
     @Test
     public void testForTask7() {
-        Assertions.assertEquals(true, false);
+        List<Transaction> transactions = getTransactions();
+        int result = underTest.task7(transactions);
+        Assertions.assertEquals(result, 1000);
     }
     //TODO Write correct unit test for task8
     @Test
     public void testForTask8() {
-        Assertions.assertEquals(true, false);
+        Transaction actual = new Transaction(BRIAN, 2011, 300);
+        List<Transaction> transactions = getTransactions();
+        Transaction result = underTest.task8(transactions);
+        Assertions.assertEquals(result, actual);
     }
 
     public List<Transaction> getTransactions() {
